@@ -4,43 +4,40 @@ using namespace std;
 #define int long long
 #define all(x) (x).begin(), (x).end()
 
-// print vector
-template<typename T>
-void printVector(const vector<T>& v) {
-    for (const auto& x : v) cout ไ<< x << ' ';
-    cout << '\n';
-}
-
-// print pair
-template<typename A, typename B>
-void printPair(const pair<A, B>& p) {
-    cout << '(' << p.first << ',' << p.second << ')';
-}
-
-// print set
-template<typename T>
-void printSet(const set<T>& s) {
-    for (const auto& x : s) cout << x << ' ';
-    cout << '\n';
-}
-
-// print map
-template<typename K, typename V>
-void printMap(const map<K, V>& m) {
-    for (const auto& [k, v] : m) cout << k << ':' << v << ' ';
-    cout << '\n';
-}
-
 void solve() {
+    string lottery, buy;
+    getline(cin, lottery);
+    getline(cin, buy);
 
+    string lotChar, buyChar;
+    int lotNum, buyNum;
+
+    istringstream(lottery) >> lotChar >> lotNum;
+    istringstream(buy) >> A2-019buyChar >> buyNum;
+
+    if (lotChar == buyChar && lotNum == buyNum) {
+        cout << 1000000;
+    } else if (lotNum == buyNum) {
+        cout << 100000;
+    } else if (lotChar == buyChar && lotNum % 1000 == buyNum % 1000) {
+        cout << 2000;
+    } else if (lotChar == buyChar && lotNum % 100 == buyNum % 100) {
+        cout << 1000;
+    } else if (lotNum % 1000 == buyNum % 1000) {
+        cout << 200;
+    } else if (lotNum % 100 == buyNum % 100) {
+        cout << 100;
+    } else if (lotChar == buyChar) {
+        cout << 20;
+    } else {
+        cout << 0;
+    }
 }
-
+ 
 int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     
-    int t = 1;
-    // cin >> t;
-    while(t--) solve();
+    solve();
     return 0;
 }
